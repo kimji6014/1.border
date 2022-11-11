@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.loader {
+    background-color: darkslateblue;
+    height: 100vh;
+    /* 화면 높이의 100% */
+}
+
+.loader .loader_blob {
+    width: 480px;
+    height: 480px;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    left: calc(50% - 240px);
+    top: calc(50% - 240px);
+    /* 수평:h, 수직:v, 왼쪽:l, 오른쪽:r, 위쪽:t, 아래쪽:b */
+    /* border_radius: 20px; tl,tn,br,bl */
+    /* border-radius: 20px 100px; (tl,br) (tr,bl) */
+    /* border-radius: 20px / 100px; htl,htn,hbr,hbl / vtl,vtn,vbr,vbl
+ */
+    /* border-radius: 43% 57% 61% 39% / 48% 61% 39% 52%; htl,htn,hbr,hbl / vtl,vtn,vbr,vbl */
+    animation: go 6s linear infinite alternate;
+}
+
+.loader .loader_blob img {
+    width: 100%;
+}
+
+.loader .ro{
+    width: 480px;
+    height: 480px;
+    position: absolute;
+    left: calc(50% - 240px);
+    top: calc(50% - 240px);
+    animation: rotate 6s linear infinite alternate;
+}
+.loader .ro .loader_blob2{
+    width: 480px;
+    height: 480px;
+    border: 1px solid #fff;
+    animation: go 6s linear infinite alternate;
+}
+
+
+/* 크롬 fancy border radius검색 */ 
+@keyframes go {
+    0% {
+        border-radius:43% 57% 61% 39% / 48% 61% 39% 52%;
+        transform: scale(0.98);
+    }
+    50% {
+        border-radius:72% 28% 85% 15% / 29% 61% 39% 71%;
+    }
+    100% {
+        border-radius:64% 36% 66% 34% / 54% 61% 39% 46%;
+        transform: scale(1.08); 
+    }
+
+}
+@keyframes rotate{
+    0%{transform: rotate(0deg);} /* deg : degree(각도) */
+    100%{transform: rotate(360deg);}
+    
+}
